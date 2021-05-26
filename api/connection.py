@@ -1,13 +1,22 @@
-import pymysql
+import pymysql, os, dotenv
 
+dotenv.load_dotenv()
 
-def connect(usr, pswd, db):
-    return pymysql.connect(host='localhost', port=3306, # 'classmysql.engr.oregonstate.edu',
-                           user=usr,
-                           password=pswd,
-                           database=db,
-                           cursorclass=pymysql.cursors.DictCursor)
+local_db = str(os.environ.get('DB_CONNECTION')) == 'local'
 
+def connect(usr, pswd, db, local=local_db):
+    if local:
+        return pymysql.connect(host='localhost', port=3306, # 'classmysql.engr.oregonstate.edu',
+                            user=usr,
+                            password=pswd,
+                            database=db,
+                            cursorclass=pymysql.cursors.DictCursor)
+    else:
+        return pymysql.connect('classmysql.engr.oregonstate.edu',
+                            user=usr,
+                            password=pswd,
+                            database=db,
+                            cursorclass=pymysql.cursors.DictCursor)
 
 def execute_query(db_connection=None, query=None, query_params=()):
     '''
