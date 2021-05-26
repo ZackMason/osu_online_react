@@ -1,0 +1,115 @@
+
+body {
+    background-color:darkslategrey;
+}
+
+#main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#main > nav {
+    order: -1;
+    width: 10%;
+    height: 256px;
+    background-color:dimgray ;
+    border-radius: 8px;
+    margin:5px;
+    display: flex;
+    justify-content: center;
+}
+
+.viewportForm {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.viewportRow {
+    margin: 3%;
+}
+
+.table_responsive{
+    width: 100%;
+}
+
+#addButton {
+    background-color:rgb(89, 218, 250);
+    color:white;
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    stroke-width: 4px;
+}
+
+.viewport {
+    display: flex;
+    justify-content: center;
+}  
+
+.content {
+    margin:5px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.navbar {
+    display: inline-flex;
+    background-color: grey;
+    justify-content: space-evenly;
+    align-items: center;
+    width:100%;
+    height: 7%;
+    border-radius: 8px;
+}
+
+.navbar, a{
+    color:wheat;
+}
+
+.deleteRowContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.deleteRow{
+    height: 26px;
+    width: 26px;
+    background-color: rgb(255, 61, 35);
+    border-radius: 4px;
+    border: none;
+    vertical-align: center;
+}
+
+.updateRowContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.updateRow{
+    height: 30px;
+    width: 80px;
+    background-color: rgb(35, 193, 255);
+    border-radius: 4px;
+    border: none;
+    vertical-align: center;
+}
+
+
+.table-responsive {
+    animation: table_anim .5s ease-in;
+    animation-fill-mode: forwards;
+    transform: translateX(100%) scale(0);
+}
+
+@keyframes table_anim {
+    100% {
+        transform: translateX(0) translateY(0) scale(1);
+       opacity: 1;
+}
+}
+
+

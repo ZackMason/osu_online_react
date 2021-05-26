@@ -1,0 +1,70 @@
+
+a {
+    text-decoration: none;
+}
+
+.update-modal {position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	opacity: 0;
+	visibility: hidden;
+	
+	transition: 0.5s;
+}
+
+.modal__bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content__title {
+	padding: 16px;
+	text-align: center;
+}
+
+.modal__content {
+	width: 80%;
+	height: 50%;
+	background-color: rgba(255, 255, 255, 0.95);
+	border-radius: 5px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+	
+	transform: translateY(-50%);
+	
+	transition: 0.5s 0.2s;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal__content > * {
+    padding: 2rem;
+}
+
+.content__btn-close {
+	position: absolute;
+	top: 10%;
+	right: 5%;
+	
+	font-size: 18px;
+	font-weight: bold;
+	color: #333 !important;
+	
+	transition: 0.5s;
+}
+
+.content__btn-close:hover {
+	transform: rotate(360deg);
+}
+
