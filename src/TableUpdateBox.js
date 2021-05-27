@@ -27,6 +27,7 @@ export default class TableUpdateBox extends Component {
         
         this.state.non_form_data.refresh_table()
         this.state.non_form_data.close_callback()
+        window.location.reload();
     }
 
     handleChanged = (e, attr) => {

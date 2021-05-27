@@ -15,11 +15,13 @@ login_name = str(os.environ.get('LOGIN', 'your_login'))
 login_pswd = str(os.environ.get('DB_PASS', 'your_password'))
 login_db = str(os.environ.get('DATABASE', 'login_again'))
 
+
 # data string looks like
 # a=1&b=2&c=3&
 # returns output as [[a,1], [b,2], [c,3]]
 def decode_data_string(data):
     return [x.split('=') for x in data.split('&') if x]
+
 
 def get_table(table_name):
     query = 'SELECT * FROM %s;' % table_name
@@ -27,6 +29,7 @@ def get_table(table_name):
         with execute_query(connection, query) as cursor:
             res = json.loads(json.dumps(cursor.fetchall()))
             return [e for e in res]
+
 
 @app.route('/<table_name>/insert/<data>')
 def insert_row(table_name, data):
@@ -42,10 +45,11 @@ def insert_row(table_name, data):
             pass
     return {}
 
+
 @app.route('/<table_name>/delete/<id>')
 def delete_row(table_name, id):
     query = "DELETE FROM %s WHERE %s=%s;"
-    id_name = '%s_%s' % (table_name if table_name != 'items' else 'item', 'id')
+    id_name = '%s_%s' % (table_name, 'id')
     query = query % (table_name, id_name, id)
     print(query)
     with connect(login_name, login_pswd, login_db) as connection:
@@ -53,16 +57,18 @@ def delete_row(table_name, id):
             pass
     return {}
 
+
 @app.route('/<table_name>/update/<id>/<data>')
 def update_row(table_name, id, data):
     query = 'UPDATE %s SET %s WHERE %s=%s;'
     data = decode_data_string(data)
     set_query = ', '.join(["%s='%s'" % tuple(pair) for pair in data])
-    query %= (table_name, set_query, '%s_id' % (table_name if table_name != 'items' else 'item'), id)
+    query %= (table_name, set_query, '%s_id' % table_name, id)
     with connect(login_name, login_pswd, login_db) as connection:
         with execute_query(connection, query) as cursor:
             pass
     return {}
+
 
 @app.route('/<table_name>')
 def table_page(table_name):

@@ -38,6 +38,7 @@ export default class TableInsertBox extends Component {
         })
         console.log(request_string)
         fetch('/' + this.state.table_name + '/insert/' + request_string)
+        window.location.reload();
     }
 
     handleChanged = (e, attr) => {

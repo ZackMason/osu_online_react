@@ -41,6 +41,7 @@ class Table extends Component {
 
     deleteOnClick = (table_name, id) => {
         fetch('/' + table_name + '/delete/' + id)
+        window.location.reload();
     }
 
     renderTableHeader() {
@@ -62,7 +63,7 @@ class Table extends Component {
     renderTable() {
         if (!this.state.table) return (<></>)
         return this.state.table.map((entity, idx) => {
-            const table_name = (this.state.table_name=='items') ? 'item' : this.state.table_name;
+            const table_name = this.state.table_name;
             const id = entity[table_name + '_' + 'id'] //destructuring
             return (
                <tr key={id}>

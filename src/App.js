@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import Reacwt, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Table from './Table'
 import TableInsertBox from './TableInsertBox'
@@ -68,7 +68,7 @@ function App() {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onClick={() => handle_link_click('items')}>
+              <a class="nav-link" href="#" onClick={() => handle_link_click('item')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                 Items
               </a>
@@ -98,19 +98,19 @@ function App() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onClick={() => handle_link_click('player_quests')}>
+                <a class="nav-link" href="#" onClick={() => handle_link_click('player_active_quests')}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                   Player Quests
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link"  href="#" onClick={() => handle_link_click('npc_droptable')}>
+                <a class="nav-link"  href="#" onClick={() => handle_link_click('npc_drop_table')}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                   NPC Drop Table
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" onClick={() => handle_link_click('npc_spawned')}>
+                <a class="nav-link" href="#" onClick={() => handle_link_click('spawned_npc')}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                   Spawned NPCs
                 </a>
